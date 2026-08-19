@@ -53,16 +53,17 @@ public class HumorousErgenka implements Ergenka{
 
     @Override
     public void reactToDate(DateEvent dateEvent) {
-        rating = (humorLevel*5)/dateEvent.getTensionLevel();
+        int bonusses = 0;
         
         if(dateEvent.getDuration() >=30 && dateEvent.getDuration() <= 90){
-            rating += 4;
+            bonusses += 4;
         }else if(dateEvent.getDuration()<30){
-            rating -= 2;
+            bonusses -= 2;
         }else{
-            rating -=3;
+            bonusses -=3;
         }
-        
+        rating = (humorLevel*5)/dateEvent.getTensionLevel() + bonusses;
+    
     }
     
 }
