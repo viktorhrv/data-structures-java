@@ -16,5 +16,7 @@ public class LowAttributeSumEliminationRule implements EliminationRule{
     public Ergenka[] eliminateErgenkas(Ergenka[] ergenkas) {
 
     }
+
+
     
 }

@@ -6,10 +6,11 @@ package bg.sofia.uni.fmi.mjt.show;
 
 import bg.sofia.uni.fmi.mjt.show.date.DateEvent;
 import bg.sofia.uni.fmi.mjt.show.elimination.EliminationRule;
+import bg.sofia.uni.fmi.mjt.show.elimination.LowestRatingEliminationRule;
 import bg.sofia.uni.fmi.mjt.show.ergenka.Ergenka;
 
 /**
- *
+ * 
  * @author user
  */
 public class ShowAPIImpl implements ShowAPI{
@@ -19,11 +20,12 @@ public class ShowAPIImpl implements ShowAPI{
     
     public ShowAPIImpl(Ergenka[] ergenkas, EliminationRule[] defaultEliminationRules){
         this.ergenkas = ergenkas;
+        this.defaultEliminationRules = defaultEliminationRules;
     }
     
     @Override
     public Ergenka[] getErgenkas() {
-        
+            return ergenkas;
     }
 
     @Override
@@ -33,12 +35,19 @@ public class ShowAPIImpl implements ShowAPI{
 
     @Override
     public void eliminateErgenkas(EliminationRule[] eliminationRules) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    if (eliminationRules.length == 0) {
+        EliminationRule rule = new LowestRatingEliminationRule();
+        ergenkas = rule.eliminateErgenkas(ergenkas);
+    } else {
+        for (int i = 0; i < eliminationRules.length; i++) {
+            ergenkas = eliminationRules[i].eliminateErgenkas(ergenkas);
+        }
     }
+}
 
     @Override
     public void organizeDate(Ergenka ergenka, DateEvent dateEvent) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ergenka.reactToDate(dateEvent);
     }
     
     
