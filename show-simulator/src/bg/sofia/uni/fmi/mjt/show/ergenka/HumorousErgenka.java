@@ -62,7 +62,7 @@ public class HumorousErgenka implements Ergenka{
         }else{
             bonusses -=3;
         }
-        rating = (humorLevel*5)/dateEvent.getTensionLevel() + bonusses;
+        rating = (humorLevel*5)/dateEvent.getTensionLevel() + romanceLevel/3 + bonusses;
     
     }
     
