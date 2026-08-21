@@ -30,6 +30,9 @@ public class ShowAPIImpl implements ShowAPI{
 
     @Override
     public void playRound(DateEvent dateEvent) {
+      for(Ergenka ergenka : ergenkas){
+          organizeDate(ergenka, dateEvent);
+      }
       
     }
 

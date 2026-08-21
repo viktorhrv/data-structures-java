@@ -14,7 +14,7 @@ public class LowestRatingEliminationRule implements EliminationRule {
 
     @Override
     public Ergenka[] eliminateErgenkas(Ergenka[] ergenkas) {
-        int min = 9999;
+        int min = Integer.MAX_VALUE;
         int count = 0;
 
         // Find the lowest rating
