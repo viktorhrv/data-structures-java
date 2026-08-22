@@ -8,6 +8,6 @@ package bg.sofia.uni.fmi.mjt.burnout.semester;
  *
  * @author user
  */
-public class SoftwareEngineeringSemesterPlanner {
+public final class SoftwareEngineeringSemesterPlanner extends AbstractSemesterClass{
     
 }

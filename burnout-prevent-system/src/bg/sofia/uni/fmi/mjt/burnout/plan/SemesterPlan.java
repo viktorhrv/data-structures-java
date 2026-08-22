@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Record.java to edit this template
  */
 package bg.sofia.uni.fmi.mjt.burnout.plan;
+import bg.sofia.uni.fmi.mjt.burnout.subject.SubjectRequirement;
+import bg.sofia.uni.fmi.mjt.burnout.subject.UniversitySubject;
 
 /**
  *
@@ -21,9 +23,17 @@ package bg.sofia.uni.fmi.mjt.burnout.plan;
  * @throws IllegalArgumentException if the minimalAmountOfCredits is negative
  */
 
-public record SemesterPlan{
 public record SemesterPlan(UniversitySubject[] subjects, SubjectRequirement[] subjectRequirements, int minimalAmountOfCredits) {
-    
+    public SemesterPlan{
+        if(subjects == null){
+            throw new IllegalArgumentException("Cant be null");
+        }
+        if(subjectRequirements == null){
+            throw new IllegalArgumentException("Cant be null");
+        }
+        if(minimalAmountOfCredits <= 0){
+            throw new IllegalArgumentException("Cant be negative");
+        }
+    }
 
-}
 }
