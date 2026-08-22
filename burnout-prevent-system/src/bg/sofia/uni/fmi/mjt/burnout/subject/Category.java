@@ -9,5 +9,10 @@ package bg.sofia.uni.fmi.mjt.burnout.subject;
  * @author user
  */
 public enum Category {
-    
+ 
+    MATH,
+    PROGRAMMING,
+    THEORY,
+    PRACTICAL
+
 }
